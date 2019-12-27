@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * createTime: 2019-12-26 23:43
  * @author au
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "top.auzqy.comment")
 public class PublicCommentApplication {
 
     public static void main(String[] args) {

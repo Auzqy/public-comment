@@ -25,11 +25,12 @@ public class CommonRes {
      */
     private Object data;
 
-    public static CommonRes successMayBeNull(Object result){
+    public static CommonRes successMayBeNull(Object result) throws BusinessException {
         if (null == result) {
-            return CommonRes.fail(
-                    new CommonError(
-                            EmBusinessError.NO_OBJECT_FOUND));
+//            return CommonRes.fail(
+//                    new CommonError(
+//                            EmBusinessError.NO_OBJECT_FOUND));
+            throw new BusinessException(EmBusinessError.NO_OBJECT_FOUND);
         }
         return CommonRes.create(result,SUCCESS);
     }

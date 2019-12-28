@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import top.auzqy.comment.common.BusinessException;
 import top.auzqy.comment.common.CommonRes;
 import top.auzqy.comment.model.UserModel;
 import top.auzqy.comment.service.IUserService;
@@ -29,7 +30,8 @@ public class UserController {
 
     @RequestMapping("/get")
     @ResponseBody
-    public CommonRes getUser(@RequestParam("id") Integer id) {
+    public CommonRes getUser(@RequestParam("id") Integer id)
+            throws BusinessException {
         return CommonRes.successMayBeNull(userService.getUser(id));
     }
 }

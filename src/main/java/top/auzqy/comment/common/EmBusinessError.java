@@ -17,7 +17,7 @@ public enum EmBusinessError {
     NO_OBJECT_FOUND(10001,"请求对象不存在"),
     UNKNOWN_ERROR(10002,"未知错误"),
     NO_HANDLER_FOUND(10003,"找不到执行的路径操作"),
-    BIND_EXCEPTION_ERROR(10004,"请求参数错误"),
+    REQUEST_PARAM_BIND_EXCEPTION_ERROR(10004,"请求参数错误"),
     PARAMETER_VALIDATION_ERROR(10005,"请求参数校验失败"),
 
     //用户服务相关的错误类型20000开头

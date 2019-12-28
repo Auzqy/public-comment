@@ -1,5 +1,6 @@
 package top.auzqy.comment.common.exception;
 
+import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,6 +32,11 @@ public class GlobalExceptionHandler {
             return CommonRes.fail(
                     new CommonError(
                             EmBusinessError.NO_HANDLER_FOUND));
+        } else if (ex instanceof ServletRequestBindingException) {
+            return CommonRes.fail(
+                    new CommonError(
+                            EmBusinessError
+                                    .REQUEST_PARAM_BIND_EXCEPTION_ERROR));
         } else {
             return CommonRes.fail(
                     new CommonError(

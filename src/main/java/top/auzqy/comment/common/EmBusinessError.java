@@ -25,6 +25,9 @@ public enum EmBusinessError {
 
     LOGIN_FAIL(20002,"手机号或密码错误"),
 
+    //admin相关错误
+    ADMIN_SHOULD_LOGIN(30001,"管理员需要先登录"),
+
     ;
 
     private Integer errCode;

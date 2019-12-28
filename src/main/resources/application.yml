@@ -19,7 +19,7 @@ spring:
         # 接入前端静态资源页面
         static-path-pattern: /static/**
     thymeleaf:
-        prefix: classpath:/templates
+        prefix: classpath:/templates/
         suffix: .html
 
 mybatis:

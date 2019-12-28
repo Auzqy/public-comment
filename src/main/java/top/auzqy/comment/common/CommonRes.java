@@ -2,6 +2,7 @@ package top.auzqy.comment.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import top.auzqy.comment.common.exception.BusinessException;
 
 /**
  * description:  统一响应对象的封装

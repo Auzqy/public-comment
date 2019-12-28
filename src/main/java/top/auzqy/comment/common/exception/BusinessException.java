@@ -1,6 +1,8 @@
-package top.auzqy.comment.common;
+package top.auzqy.comment.common.exception;
 
 import lombok.Data;
+import top.auzqy.comment.common.CommonError;
+import top.auzqy.comment.common.EmBusinessError;
 
 /**
  * description:  统一的业务异常

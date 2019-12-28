@@ -38,4 +38,12 @@ public interface IUserService {
      * @return
      */
     UserModel login(UserModel loginUser) throws BusinessException, NoSuchAlgorithmException;
+
+    /**
+     * description:  统计所有用户的数量
+     * createTime: 2019-12-28 23:22
+     * @author au
+     * @return
+     */
+    Integer countAllUser();
 }

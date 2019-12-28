@@ -62,4 +62,7 @@ public interface UserModelMapper {
      */
     UserModel selectByTelephoneAndPassword(@Param("telephone") String telephone,
                                            @Param("password") String password);
+
+    Integer countAllUser();
+
 }

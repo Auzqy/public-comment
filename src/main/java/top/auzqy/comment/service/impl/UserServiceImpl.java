@@ -60,6 +60,11 @@ public class UserServiceImpl implements IUserService {
         return userModel;
     }
 
+    @Override
+    public Integer countAllUser() {
+        return userModelMapper.countAllUser();
+    }
+
     private String encodeByMd5(String str) throws NoSuchAlgorithmException {
         MessageDigest md5 = MessageDigest.getInstance("MD5");
         BASE64Encoder base64Encoder = new BASE64Encoder();

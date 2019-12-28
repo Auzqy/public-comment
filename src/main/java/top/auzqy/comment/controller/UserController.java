@@ -1,5 +1,6 @@
 package top.auzqy.comment.controller;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -76,7 +77,8 @@ public class UserController {
     @PostMapping("/login")
     @ResponseBody
     public CommonRes login(@Valid @RequestBody LoginReq loginReq,
-                           BindingResult bindingResult) throws NoSuchAlgorithmException, BusinessException {
+                           BindingResult bindingResult)
+            throws NoSuchAlgorithmException, BusinessException {
         if (bindingResult.hasErrors()) {
             throw new BusinessException(
                     EmBusinessError.PARAMETER_VALIDATION_ERROR,
@@ -88,5 +90,21 @@ public class UserController {
         httpServletRequest.getSession().setAttribute(CURRENT_USER_SESSION,userModel);
 
         return CommonRes.success(loginUser);
+    }
+
+
+    @GetMapping("/logout")
+    @ResponseBody
+    public CommonRes logout() {
+        httpServletRequest.getSession().invalidate();
+        return CommonRes.success(null);
+    }
+
+    @GetMapping("/getcurrentuser")
+    @ResponseBody
+    public CommonRes getCurrentUser() throws BusinessException {
+        UserModel userModel = (UserModel) httpServletRequest.getSession()
+                .getAttribute(CURRENT_USER_SESSION);
+        return CommonRes.successMayBeNull(userModel);
     }
 }

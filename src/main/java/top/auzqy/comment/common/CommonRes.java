@@ -25,6 +25,15 @@ public class CommonRes {
      */
     private Object data;
 
+    public static CommonRes successMayBeNull(Object result){
+        if (null == result) {
+            return CommonRes.fail(
+                    new CommonError(
+                            EmBusinessError.NO_OBJECT_FOUND));
+        }
+        return CommonRes.create(result,SUCCESS);
+    }
+
     public static CommonRes success(Object result){
         return CommonRes.create(result,SUCCESS);
     }

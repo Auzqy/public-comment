@@ -30,6 +30,6 @@ public class UserController {
     @RequestMapping("/get")
     @ResponseBody
     public CommonRes getUser(@RequestParam("id") Integer id) {
-        return CommonRes.success(userService.getUser(id));
+        return CommonRes.successMayBeNull(userService.getUser(id));
     }
 }

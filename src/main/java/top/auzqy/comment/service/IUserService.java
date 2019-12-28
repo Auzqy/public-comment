@@ -1,6 +1,9 @@
 package top.auzqy.comment.service;
 
+import top.auzqy.comment.common.exception.BusinessException;
 import top.auzqy.comment.model.UserModel;
+
+import java.security.NoSuchAlgorithmException;
 
 /**
  * description:
@@ -15,4 +18,13 @@ public interface IUserService {
      * @return
      */
     UserModel getUser(Integer id);
+
+    /**
+     * description:  用户注册
+     * createTime: 2019-12-28 13:48
+     * @author au
+     * @param registerUser
+     * @return
+     */
+    UserModel register(UserModel registerUser) throws BusinessException, NoSuchAlgorithmException;
 }

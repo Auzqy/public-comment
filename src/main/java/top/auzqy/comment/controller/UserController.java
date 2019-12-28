@@ -18,6 +18,7 @@ import top.auzqy.comment.service.IUserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 /**
  * description:
@@ -74,6 +75,17 @@ public class UserController {
         return CommonRes.success(resUserModel);
     }
 
+    /**
+     * todo 眼下的这种方式，如果用于在不同的浏览器登录，退出时也需要分别退出
+     *      正确的方式因该登录时判断同一用户，
+     *      登出时判断时谁登出
+     *
+     * @param loginReq
+     * @param bindingResult
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws BusinessException
+     */
     @PostMapping("/login")
     @ResponseBody
     public CommonRes login(@Valid @RequestBody LoginReq loginReq,
@@ -87,7 +99,7 @@ public class UserController {
         UserModel userModel = loginReq.convert2UserModel();
         UserModel loginUser = userService.login(userModel);
 
-        httpServletRequest.getSession().setAttribute(CURRENT_USER_SESSION,userModel);
+        httpServletRequest.getSession().setAttribute(CURRENT_USER_SESSION,loginUser);
 
         return CommonRes.success(loginUser);
     }
@@ -97,7 +109,7 @@ public class UserController {
     @ResponseBody
     public CommonRes logout() {
         httpServletRequest.getSession().invalidate();
-        return CommonRes.success(null);
+        return CommonRes.success(new Object());
     }
 
     @GetMapping("/getcurrentuser")

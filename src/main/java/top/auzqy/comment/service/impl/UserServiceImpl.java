@@ -51,8 +51,8 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserModel login(UserModel loginUser) throws BusinessException, NoSuchAlgorithmException {
-        UserModel userModel = userModelMapper.selectByTelephoneAndPassword(
-                loginUser.getPassword(),encodeByMd5(loginUser.getPassword()));
+            UserModel userModel = userModelMapper.selectByTelephoneAndPassword(
+                loginUser.getTelephone(),encodeByMd5(loginUser.getPassword()));
         if (null == userModel) {
             throw new BusinessException(EmBusinessError.LOGIN_FAIL);
         }

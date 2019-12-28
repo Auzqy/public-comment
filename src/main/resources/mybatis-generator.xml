@@ -56,12 +56,20 @@
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"></table>
         -->
-        <table tableName="user"  domainObjectName="UserModel" enableCountByExample="false"
+        <!--<table tableName="user"  domainObjectName="UserModel" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true" />
-<!--            <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+&lt;!&ndash;            <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR" />&ndash;&gt;
         </table>
+        -->
+        <table tableName="seller"  domainObjectName="SellerModel" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <!--            <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        </table>
+
 
     </context>
 </generatorConfiguration>

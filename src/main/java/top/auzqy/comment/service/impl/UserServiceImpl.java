@@ -11,8 +11,6 @@ import top.auzqy.comment.dao.UserModelMapper;
 import top.auzqy.comment.model.UserModel;
 import top.auzqy.comment.service.IUserService;
 
-import javax.xml.stream.events.Characters;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -49,6 +47,17 @@ public class UserServiceImpl implements IUserService {
         UserModel user = getUser(registerUser.getId());
         user.setPassword("");
         return user;
+    }
+
+    @Override
+    public UserModel login(UserModel loginUser) throws BusinessException, NoSuchAlgorithmException {
+        UserModel userModel = userModelMapper.selectByTelephoneAndPassword(
+                loginUser.getPassword(),encodeByMd5(loginUser.getPassword()));
+        if (null == userModel) {
+            throw new BusinessException(EmBusinessError.LOGIN_FAIL);
+        }
+        userModel.setPassword("");
+        return userModel;
     }
 
     private String encodeByMd5(String str) throws NoSuchAlgorithmException {

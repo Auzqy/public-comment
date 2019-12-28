@@ -1,5 +1,6 @@
 package top.auzqy.comment.dao;
 
+import org.apache.ibatis.annotations.Param;
 import top.auzqy.comment.model.UserModel;
 
 public interface UserModelMapper {
@@ -50,4 +51,15 @@ public interface UserModelMapper {
      * @mbg.generated Fri Dec 27 21:28:05 CST 2019
      */
     int updateByPrimaryKey(UserModel record);
+
+    /**
+     * description:  依据 telephone 和 password 查询结果
+     * createTime: 2019-12-28 16:19
+     * @author au
+     * @param telephone
+     * @param password
+     * @return
+     */
+    UserModel selectByTelephoneAndPassword(@Param("telephone") String telephone,
+                                           @Param("password") String password);
 }

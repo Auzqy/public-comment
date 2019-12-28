@@ -25,6 +25,17 @@ public interface IUserService {
      * @author au
      * @param registerUser
      * @return
+     * @throws BusinessException
+     * @throws NoSuchAlgorithmException
      */
     UserModel register(UserModel registerUser) throws BusinessException, NoSuchAlgorithmException;
+
+    /**
+     * description:  用户登录
+     * createTime: 2019-12-28 16:14
+     * @author au
+     * @param loginUser
+     * @return
+     */
+    UserModel login(UserModel loginUser) throws BusinessException, NoSuchAlgorithmException;
 }

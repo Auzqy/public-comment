@@ -10,9 +10,11 @@ import top.auzqy.comment.common.EmBusinessError;
 import top.auzqy.comment.common.exception.BusinessException;
 import top.auzqy.comment.common.CommonRes;
 import top.auzqy.comment.model.UserModel;
+import top.auzqy.comment.request.LoginReq;
 import top.auzqy.comment.request.RegisterReq;
 import top.auzqy.comment.service.IUserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
 
@@ -25,8 +27,14 @@ import java.security.NoSuchAlgorithmException;
 @RequestMapping("/user")
 public class UserController {
 
+    public static final String CURRENT_USER_SESSION = "currentUserSession";
+
+    @Autowired
+    private HttpServletRequest httpServletRequest;
+
     @Autowired
     private IUserService userService;
+
 
     @RequestMapping("/test")
     @ResponseBody
@@ -63,5 +71,22 @@ public class UserController {
         UserModel userModel = registerReq.convert2UserModel();
         UserModel resUserModel = userService.register(userModel);
         return CommonRes.success(resUserModel);
+    }
+
+    @PostMapping("/login")
+    @ResponseBody
+    public CommonRes login(@Valid @RequestBody LoginReq loginReq,
+                           BindingResult bindingResult) throws NoSuchAlgorithmException, BusinessException {
+        if (bindingResult.hasErrors()) {
+            throw new BusinessException(
+                    EmBusinessError.PARAMETER_VALIDATION_ERROR,
+                    CommonUtil.processErrorString(bindingResult));
+        }
+        UserModel userModel = loginReq.convert2UserModel();
+        UserModel loginUser = userService.login(userModel);
+
+        httpServletRequest.getSession().setAttribute(CURRENT_USER_SESSION,userModel);
+
+        return CommonRes.success(loginUser);
     }
 }

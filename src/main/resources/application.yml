@@ -8,6 +8,14 @@ spring:
         username: root
         password: 123456
         type: com.alibaba.druid.pool.DruidDataSource
+    resources:
+        # 是否解析资源路径下的映射，当有静态文件时使用
+        add-mappings: false
+    mvc:
+        # 没有找到映射包的 handler 的时候是否抛出异常
+        throw-exception-if-no-handler-found: true
 
 mybatis:
     mapper-locations: classpath:mapping/*.xml
+
+

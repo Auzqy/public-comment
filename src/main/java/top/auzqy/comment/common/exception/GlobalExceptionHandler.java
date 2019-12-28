@@ -3,6 +3,7 @@ package top.auzqy.comment.common.exception;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.NoHandlerFoundException;
 import top.auzqy.comment.common.CommonError;
 import top.auzqy.comment.common.CommonRes;
 import top.auzqy.comment.common.EmBusinessError;
@@ -26,6 +27,10 @@ public class GlobalExceptionHandler {
         if (ex instanceof BusinessException) {
             return CommonRes.fail(
                     ((BusinessException) ex).getCommonError());
+        } else if (ex instanceof NoHandlerFoundException) {
+            return CommonRes.fail(
+                    new CommonError(
+                            EmBusinessError.NO_HANDLER_FOUND));
         } else {
             return CommonRes.fail(
                     new CommonError(

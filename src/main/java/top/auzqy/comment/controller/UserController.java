@@ -79,6 +79,7 @@ public class UserController {
      * todo 眼下的这种方式，如果用于在不同的浏览器登录，退出时也需要分别退出
      *      正确的方式因该登录时判断同一用户，
      *      登出时判断时谁登出
+     *      获取当前用户也应该传递参数
      *
      * @param loginReq
      * @param bindingResult

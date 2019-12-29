@@ -10,7 +10,7 @@ import top.auzqy.comment.service.CategoryService;
 
 import java.util.List;
 
-@Controller
+@Controller("/category")
 @RequestMapping("/category")
 public class CategoryController {
 
@@ -22,7 +22,6 @@ public class CategoryController {
     public CommonRes list(){
         List<CategoryModel> categoryModelList = categoryService.selectAll();
         return CommonRes.success(categoryModelList);
-
     }
 
 }

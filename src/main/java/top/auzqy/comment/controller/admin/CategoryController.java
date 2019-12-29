@@ -21,13 +21,17 @@ import top.auzqy.comment.service.CategoryService;
 import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@Controller("/admin/category")
 @RequestMapping("/admin/category")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    //品类列表
+    /**
+     * 品类列表
+     * @param pageQuery
+     * @return
+     */
     @RequestMapping("/index")
     @AdminPermission
     public ModelAndView index(PageQuery pageQuery){

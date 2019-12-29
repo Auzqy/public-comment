@@ -20,7 +20,7 @@ import top.auzqy.comment.service.ShopService;
 import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@Controller("/admin/shop")
 @RequestMapping("/admin/shop")
 public class ShopController {
     @Autowired

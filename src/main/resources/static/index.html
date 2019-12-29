@@ -299,10 +299,31 @@
         return number;
     };
 
+    // au added
+    // http://lbsyun.baidu.com/jsdemo.htm#i7_2
+    getCurrentCity_Au = function(lon,lat){
+        // 百度地图API功能
+        // var map = new BMap.Map("allmap");
+        var point = new BMap.Point(lon,lat);
+        // map.centerAndZoom(point,12);
+        var geoc = new BMap.Geocoder();
+
+        // map.addEventListener("click", function(e){
+        //     var pt = e.point;
+            var pt = point;
+            geoc.getLocation(pt, function(rs){
+                var addComp = rs.addressComponents;
+                // alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                $("#citylist").text(addComp.city);
+            });
+        // });
+    }
+
     jQuery(document).ready(function() {
         var g_currentUser = null;
         $("#searchTitle").hide();
 
+        // http://lbsyun.baidu.com/jsdemo.htm#i8_1
         var geolocation = new BMap.Geolocation();
         geolocation.getCurrentPosition(function(r){
             if(this.getStatus() == BMAP_STATUS_SUCCESS){
@@ -310,6 +331,8 @@
                 var latitude = r.point.lat;
                 $("#longitude").val(longitude);
                 $("#latitude").val(latitude);
+
+                getCurrentCity_Au(longitude, latitude);
 
                 $.ajax({
                     type : "GET",

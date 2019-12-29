@@ -1,15 +1,14 @@
 package top.auzqy.comment.controller;
 
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import top.auzqy.comment.common.CommonRes;
 import top.auzqy.comment.common.CommonUtil;
 import top.auzqy.comment.common.EmBusinessError;
 import top.auzqy.comment.common.exception.BusinessException;
-import top.auzqy.comment.common.CommonRes;
 import top.auzqy.comment.model.UserModel;
 import top.auzqy.comment.request.LoginReq;
 import top.auzqy.comment.request.RegisterReq;
@@ -18,7 +17,6 @@ import top.auzqy.comment.service.IUserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
-import java.util.Objects;
 
 /**
  * description:

@@ -2,23 +2,28 @@ package top.auzqy.comment.controller.admin;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import top.auzqy.comment.common.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import top.auzqy.comment.common.CommonRes;
+import top.auzqy.comment.common.CommonUtil;
+import top.auzqy.comment.common.EmBusinessError;
 import top.auzqy.comment.common.annotation.AdminPermission;
 import top.auzqy.comment.common.exception.BusinessException;
 import top.auzqy.comment.model.SellerModel;
 import top.auzqy.comment.request.PageQuery;
 import top.auzqy.comment.request.SellerCreateReq;
 import top.auzqy.comment.service.SellerService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@Controller("/admin/seller")
+@Controller
 @RequestMapping("/admin/seller")
 public class SellerController {
 

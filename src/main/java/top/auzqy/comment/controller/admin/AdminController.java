@@ -1,11 +1,5 @@
 package top.auzqy.comment.controller.admin;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -14,15 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import sun.misc.BASE64Encoder;
-
+import top.auzqy.comment.common.EmBusinessError;
 import top.auzqy.comment.common.annotation.AdminPermission;
 import top.auzqy.comment.common.exception.BusinessException;
-import top.auzqy.comment.common.EmBusinessError;
 import top.auzqy.comment.service.IUserService;
 
-@Controller("/admin/admin")
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+@Controller
 @RequestMapping("/admin/admin")
 public class AdminController {
 

@@ -1,6 +1,11 @@
 package top.auzqy.comment.dao;
 
+import org.apache.ibatis.annotations.Param;
 import top.auzqy.comment.model.ShopModel;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 public interface ShopModelMapper {
     /**
@@ -50,4 +55,18 @@ public interface ShopModelMapper {
      * @mbg.generated Sun Dec 29 16:24:43 CST 2019
      */
     int updateByPrimaryKey(ShopModel record);
+
+    Integer countAllShop();
+    List<ShopModel> selectAll();
+    List<ShopModel> recommend(@Param("longitude") BigDecimal longitude, @Param("latitude") BigDecimal latitude);
+    List<ShopModel> search(@Param("longitude") BigDecimal longitude,
+                           @Param("latitude") BigDecimal latitude,
+                           @Param("keyword")String keyword,
+                           @Param("orderby")Integer orderby,
+                           @Param("categoryId")Integer categoryId,
+                           @Param("tags")String tags);
+
+    List<Map<String,Object>> searchGroupByTags(@Param("keyword")String keyword,
+                                               @Param("categoryId")Integer categoryId,
+                                               @Param("tags")String tags);
 }

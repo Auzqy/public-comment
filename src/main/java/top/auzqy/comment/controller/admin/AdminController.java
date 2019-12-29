@@ -12,7 +12,10 @@ import sun.misc.BASE64Encoder;
 import top.auzqy.comment.common.EmBusinessError;
 import top.auzqy.comment.common.annotation.AdminPermission;
 import top.auzqy.comment.common.exception.BusinessException;
+import top.auzqy.comment.service.CategoryService;
 import top.auzqy.comment.service.IUserService;
+import top.auzqy.comment.service.SellerService;
+import top.auzqy.comment.service.ShopService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
@@ -36,6 +39,14 @@ public class AdminController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private CategoryService categoryService;
+
+    @Autowired
+    private ShopService shopService;
+
+    @Autowired
+    private SellerService sellerService;
 
 
     public static final String CURRENT_ADMIN_SESSION = "currentAdminSession";
@@ -46,6 +57,9 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView("/admin/admin/index");
 
         modelAndView.addObject("userCount",userService.countAllUser());
+        modelAndView.addObject("shopCount",shopService.countAllShop());
+        modelAndView.addObject("categoryCount",categoryService.countAllCategory());
+        modelAndView.addObject("sellerCount",sellerService.countAllSeller());
         modelAndView.addObject("CONTROLLER_NAME","admin");
         modelAndView.addObject("ACTION_NAME","index");
         return modelAndView;
@@ -54,8 +68,7 @@ public class AdminController {
 
     @RequestMapping("/loginpage")
     public ModelAndView loginpage(){
-        ModelAndView modelAndView = new ModelAndView("/admin/admin/login");
-        return modelAndView;
+        return new ModelAndView("/admin/admin/login");
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)

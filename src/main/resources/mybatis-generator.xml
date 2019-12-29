@@ -63,7 +63,26 @@
 &lt;!&ndash;            <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR" />&ndash;&gt;
         </table>
         -->
+
+<!--
         <table tableName="seller"  domainObjectName="SellerModel" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            &lt;!&ndash;            <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR" />&ndash;&gt;
+        </table>
+-->
+
+<!--
+        <table tableName="category"  domainObjectName="CategoryModel" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            &lt;!&ndash;            <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR" />&ndash;&gt;
+        </table>
+-->
+
+        <table tableName="shop"  domainObjectName="ShopModel" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true" />

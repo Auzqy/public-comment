@@ -26,7 +26,11 @@ public class ShopController {
     @Autowired
     private ShopService shopService;
 
-    //门店列表
+    /**
+     * 门店列表
+     * @param pageQuery
+     * @return
+     */
     @RequestMapping("/index")
     @AdminPermission
     public ModelAndView index(PageQuery pageQuery){

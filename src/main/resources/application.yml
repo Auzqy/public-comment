@@ -8,6 +8,7 @@ spring:
         username: root
         password: 123456
         type: com.alibaba.druid.pool.DruidDataSource
+
     resources:
         # 是否解析资源路径下的映射，当有静态文件时使用
         # add-mappings=true表示如果所有的controller都没有命中，
@@ -30,3 +31,12 @@ mybatis:
 admin:
     email: admin@admin.com
     encryptPassword: 4QrcOUm6Wau+VuBX8g+IPg==
+
+# 显示 sql 语句
+# top.auzqy.comment.dao 是存储 mapper 的包名
+logging:
+    level:
+        top:
+            auzqy:
+                comment:
+                    dao: debug

@@ -260,6 +260,7 @@
     from shop
   </select>
 
+  <!-- sql 中的 longitude 和 latitude 实际上是查询出来的结果，在 refid 中的列名 -->
   <select id="recommend" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

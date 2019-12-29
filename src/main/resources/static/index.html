@@ -244,17 +244,13 @@
     jQuery(document).ready(function() {
         var g_currentUser = null;
 
-
-
-
-
         //获取当前用户的信息
         $.ajax({
             type:"POST",
             contentType:"application/json;charset=utf-8",
             url:"/user/getcurrentuser",
             success:function(data){
-                  if(data.status == "success"){
+                  if(data.status === "success"){
                       if(data.data == null){
                           g_currentUser = null;
                       }else{
@@ -284,7 +280,7 @@
                     contentType:"application/json;charset=utf-8",
                     url:"/user/logout",
                     success:function(data){
-                        if(data.status == "success"){
+                        if(data.status === "success"){
                             window.location.href="/static/index.html";
                         }else{
                             alert("请求失败,原因为"+data.data.errMsg);
@@ -297,8 +293,6 @@
             }
             return false;
         });
-
-
 
     });
 </script>

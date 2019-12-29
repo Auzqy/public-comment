@@ -106,18 +106,18 @@ public class UserController {
     }
 
 
-    @GetMapping("/logout")
+    @RequestMapping("/logout")
     @ResponseBody
     public CommonRes logout() {
         httpServletRequest.getSession().invalidate();
-        return CommonRes.success(new Object());
+        return CommonRes.success(new UserModel());
     }
 
-    @GetMapping("/getcurrentuser")
+    @RequestMapping("/getcurrentuser")
     @ResponseBody
-    public CommonRes getCurrentUser() throws BusinessException {
+    public CommonRes getCurrentUser() {
         UserModel userModel = (UserModel) httpServletRequest.getSession()
                 .getAttribute(CURRENT_USER_SESSION);
-        return CommonRes.successMayBeNull(userModel);
+        return CommonRes.success(userModel);
     }
 }

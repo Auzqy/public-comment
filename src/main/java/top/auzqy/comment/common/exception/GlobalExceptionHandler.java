@@ -1,5 +1,6 @@
 package top.auzqy.comment.common.exception;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * createTime: 2019-12-28 11:41
  * @author au
  */
+@Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -38,6 +40,7 @@ public class GlobalExceptionHandler {
                             EmBusinessError
                                     .REQUEST_PARAM_BIND_EXCEPTION_ERROR));
         } else {
+            log.error(ex.getMessage());
             return CommonRes.fail(
                     new CommonError(
                             EmBusinessError.UNKNOWN_ERROR));

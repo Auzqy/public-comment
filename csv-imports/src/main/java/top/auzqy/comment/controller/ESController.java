@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +68,9 @@ public class ESController {
     public ResponseEntity importdata() throws IOException {
         BulkRequest bulkRequest = new BulkRequest();
         int lineId = 0;
-        InputStreamReader in = new InputStreamReader(new FileInputStream("./tmdb_5000_movies.csv"), Charset.forName("UTF-8"));
+        InputStreamReader in = new InputStreamReader(
+                new FileInputStream("./tmdb_5000_movies.csv"),
+                StandardCharsets.UTF_8);
         CSVReader reader = new CSVReader(in, ',');
         List<String[]> allRecords = reader.readAll();
         for (String[] records : allRecords) {

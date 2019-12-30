@@ -11,4 +11,5 @@
 数据导入工具类
 
 ##### es-kibana-config
+v 7.3.0
 es cluster + kibana

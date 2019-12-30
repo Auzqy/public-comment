@@ -69,7 +69,7 @@ public class ESController {
         BulkRequest bulkRequest = new BulkRequest();
         int lineId = 0;
         InputStreamReader in = new InputStreamReader(
-                new FileInputStream("./tmdb_5000_movies.csv"),
+                new FileInputStream("./csv-imports/tmdb_5000_movies.csv"),
                 StandardCharsets.UTF_8);
         CSVReader reader = new CSVReader(in, ',');
         List<String[]> allRecords = reader.readAll();
@@ -169,6 +169,6 @@ public class ESController {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-        return new ResponseEntity("", HttpStatus.OK);
+        return new ResponseEntity("success_au", HttpStatus.OK);
     }
 }

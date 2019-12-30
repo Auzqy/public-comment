@@ -12,9 +12,6 @@
     <artifactId>csv-importes</artifactId>
     <name>ESCsvImporter</name>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
 
     <dependencies>
         <dependency>

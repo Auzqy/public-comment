@@ -1,0 +1,42 @@
+server:
+    port: 8010
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/dianpingdb?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: 123456
+        type: com.alibaba.druid.pool.DruidDataSource
+
+    resources:
+        # 是否解析资源路径下的映射，当有静态文件时使用
+        # add-mappings=true表示如果所有的controller都没有命中，
+        # 则使用默认的静态资源处理器做匹配
+        add-mappings: true
+    mvc:
+        # 没有找到映射包的 handler 的时候是否抛出异常
+        throw-exception-if-no-handler-found: true
+        # 接入前端静态资源页面
+        static-path-pattern: /static/**
+    thymeleaf:
+        prefix: classpath:/templates/
+        suffix: .html
+        cache: false
+
+mybatis:
+    mapper-locations: classpath:mapping/*.xml
+
+#admin官方账号的用户名和密码
+admin:
+    email: admin@admin.com
+    encryptPassword: 4QrcOUm6Wau+VuBX8g+IPg==
+
+# 显示 sql 语句
+# top.auzqy.comment.dao 是存储 mapper 的包名
+logging:
+    level:
+        top:
+            auzqy:
+                comment:
+                    dao: debug

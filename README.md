@@ -18,3 +18,6 @@ tmdb_5000_movies.csv 整理好的用于测试的数据
 ##### es-kibana-config
 v 7.3.0
 es cluster + kibana
+
+#### 项目启动方式
+

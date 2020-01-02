@@ -3,6 +3,7 @@ package top.auzqy.comment.service;
 import top.auzqy.comment.common.exception.BusinessException;
 import top.auzqy.comment.model.ShopModel;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
@@ -19,4 +20,9 @@ public interface ShopService {
 
     List<ShopModel> search(BigDecimal longitude, BigDecimal latitude,
                            String keyword, Integer orderby, Integer categoryId, String tags);
+
+    Map<String,Object> searchES(BigDecimal longitude,BigDecimal latitude,
+                                String keyword,Integer orderby,
+                                Integer categoryId,String tags) throws IOException;
+
 }

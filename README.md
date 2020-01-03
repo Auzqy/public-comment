@@ -18,6 +18,12 @@ tmdb_5000_movies.csv 整理好的用于测试的数据
 ##### es-kibana-config
 v 7.3.0
 es cluster + kibana
+[canal](https://github.com/alibaba/canal)
 
 #### 项目启动方式
+
+##### canal 的下载，安装及使用
+1. https://github.com/alibaba/canal/wiki/QuickStart
+2. https://github.com/alibaba/canal/wiki/ClientExample
+
 

@@ -48,15 +48,21 @@ server 将自己伪装成一个 mysql slave，将变化通过消息组件（如�
 
 - 本项目mysql使用8.0,配置如下，可以使用修改后的编译好的包
 ```
-todo
+
 # 下载地址
+https://github.com/Auzqy/canal/archive/canal-for-mysql8-au.zip
 
 # 打包命令
+解压后，进入目录，执行 mvn clean package -DskipTests
 
 # 项目位置
 ## canal-deployer
+./deployer/target/canal
 ## canal-adapter
+./client-adapter/launcher/target/canal-adapter
 
+
+或者直接下载 1.1.4 版本，然后将数据库的驱动替换为数据库对应的版本
 ```
 - canal-deployer/conf/instance.properties
 

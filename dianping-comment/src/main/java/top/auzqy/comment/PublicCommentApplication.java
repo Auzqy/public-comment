@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * description:  项目启动类
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication(scanBasePackages = "top.auzqy.comment")
 @MapperScan("top.auzqy.comment.dao")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@EnableScheduling
 public class PublicCommentApplication {
 
     public static void main(String[] args) {

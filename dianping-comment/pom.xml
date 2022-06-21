@@ -12,7 +12,7 @@
     <artifactId>dianping-comment</artifactId>
 
     <properties>
-        <mysql-connector.version>8.0.17</mysql-connector.version>
+        <mysql-connector.version>8.0.28</mysql-connector.version>
         <elasticsearch.version>7.3.0</elasticsearch.version>
         <canal.version>1.1.4</canal.version>
     </properties>
